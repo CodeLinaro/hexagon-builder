@@ -37,8 +37,8 @@ jobs:
 
       - name: Print file 1   
         run: |
-          echo "${{ steps.extract1.outputs.destination }}"
-          cat ${{ steps.extract1.outputs.destination }}
+          echo "${{ steps.extract1.outputs.destination }}/file1.txt"
+          cat ${{ steps.extract1.outputs.destination }}/file1.txt
 
       - name: Extract file 2
         id: extract2
@@ -49,6 +49,6 @@ jobs:
 
       - name: Print file 2     
         run: |
-          echo "${{ steps.extract2.outputs.destination }}"
-          cat ${{ steps.extract2.outputs.destination }}          
+          echo "${{ steps.extract2.outputs.destination }}/file2.txt"
+          cat ${{ steps.extract2.outputs.destination }}/file2.txt          
           
