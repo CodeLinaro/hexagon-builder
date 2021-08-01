@@ -32,6 +32,8 @@ jobs:
         with:
           image: hexagon:latest
           path: /app/file1.txt
+
+      - name: Print file 1   
         run: |
           echo "${{ steps.reports.outputs.destination }}"
           cat ${{ steps.reports.outputs.destination }}
@@ -41,6 +43,8 @@ jobs:
         with:
           image: hexagon:latest
           path: /app/file2.txt
+
+      - name: Print file 2     
         run: |
           echo "${{ steps.reports.outputs.destination }}"
           cat ${{ steps.reports.outputs.destination }}          
