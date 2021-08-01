@@ -26,6 +26,7 @@ jobs:
           context: ./
           file: ./Dockerfile.build
           tags: hexagon:latest
+          load: true
 
       - name: Extract file 1
         uses: shrink/actions-docker-extract@v1
