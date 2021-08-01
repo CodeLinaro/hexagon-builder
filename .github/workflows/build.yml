@@ -29,6 +29,7 @@ jobs:
           load: true
 
       - name: Extract file 1
+        id: extract1
         uses: shrink/actions-docker-extract@v1
         with:
           image: hexagon:latest
@@ -36,10 +37,11 @@ jobs:
 
       - name: Print file 1   
         run: |
-          echo "${{ steps.reports.outputs.destination }}"
-          cat ${{ steps.reports.outputs.destination }}
+          echo "${{ steps.extract1.outputs.destination }}"
+          cat ${{ steps.extract1.outputs.destination }}
 
       - name: Extract file 2
+        id: extract2
         uses: shrink/actions-docker-extract@v1
         with:
           image: hexagon:latest
@@ -47,6 +49,6 @@ jobs:
 
       - name: Print file 2     
         run: |
-          echo "${{ steps.reports.outputs.destination }}"
-          cat ${{ steps.reports.outputs.destination }}          
+          echo "${{ steps.extract2.outputs.destination }}"
+          cat ${{ steps.extract2.outputs.destination }}          
           
