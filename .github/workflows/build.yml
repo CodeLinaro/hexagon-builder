@@ -33,19 +33,14 @@ jobs:
         uses: shrink/actions-docker-extract@v1
         with:
           image: hexagon:latest
-          path: /app/file1.txt
-
-      - name: Print file 1   
-        run: |
-          echo "${{ steps.extract1.outputs.destination }}/file1.txt"
-          cat ${{ steps.extract1.outputs.destination }}/file1.txt
+          path: /app/results/
 
       - name: Setup jFrog CLI
         uses: jfrog/setup-jfrog-cli@v1
         env:
           JF_ARTIFACTORY_SERVER: ${{ secrets.JF_ARTIFACTORY_SERVER_1 }}
 
-      - name: Publish file 1
+      - name: Publish file
         run: | 
           jfrog --version
           jfrog rt ping
