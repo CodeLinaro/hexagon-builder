@@ -49,5 +49,6 @@ jobs:
         run: | 
           jfrog --version
           jfrog rt ping
-          jfrog rt u ${{ steps.extract1.outputs.destination }}/*.txt$ codelinaro-toolchain-for-hexagon
+          jfrog rt u "${{ steps.extract1.outputs.destination }}/*.txt" codelinaro-toolchain-for-hexagon
+          jfrog rt u "${{ steps.extract1.outputs.destination }}/*.txt" codelinaro-toolchain-for-hexagon/latest.txt
         
