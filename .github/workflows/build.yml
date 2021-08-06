@@ -7,10 +7,10 @@ on:
 jobs:
 
   build:
+    name: Build and Publish Artifact
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Check Out Repo
         uses: actions/checkout@v2
         with:
@@ -49,5 +49,5 @@ jobs:
         run: | 
           jfrog --version
           jfrog rt ping
-          jfrog rt u ${{ steps.extract1.outputs.destination }}/file1.txt codelinaro-toolchain-for-hexagon
+          jfrog rt u ${{ steps.extract1.outputs.destination }}/*.txt$ codelinaro-toolchain-for-hexagon
         
