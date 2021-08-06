@@ -40,15 +40,13 @@ jobs:
           echo "${{ steps.extract1.outputs.destination }}/file1.txt"
           cat ${{ steps.extract1.outputs.destination }}/file1.txt
 
-      - name: Extract file 2
-        id: extract2
-        uses: shrink/actions-docker-extract@v1
-        with:
-          image: hexagon:latest
-          path: /app/file2.txt
+      - name: Setup jFrog CLI
+        uses: jfrog/setup-jfrog-cli@v1
+        env:
+          JF_ARTIFACTORY_SERVER: ${{ secrets.JF_ARTIFACTORY_SERVER_1 }}
 
-      - name: Print file 2     
-        run: |
-          echo "${{ steps.extract2.outputs.destination }}/file2.txt"
-          cat ${{ steps.extract2.outputs.destination }}/file2.txt          
-          
+      - name: Publish file 1
+        run: | 
+          jfrog --version
+          jfrog rt ping
+        
