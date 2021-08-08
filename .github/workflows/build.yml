@@ -16,6 +16,7 @@ jobs:
         with:
           repository: ${{ github.event.client_payload.repo_name }}
           ref: ${{ github.event.client_payload.ref }}
+          token: ${{ secrets.SOURCE_REPO_PAT }}
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
