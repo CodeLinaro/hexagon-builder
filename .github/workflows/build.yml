@@ -45,6 +45,6 @@ jobs:
         run: | 
           jfrog --version
           jfrog rt ping
-          jfrog rt u "${{ steps.extract1.outputs.destination }}/*.tar.xz" codelinaro-toolchain-for-hexagon
-          jfrog rt u "${{ steps.extract1.outputs.destination }}/*.sha256" codelinaro-toolchain-for-hexagon
+          cd ${{ steps.extract1.outputs.destination }}
+          jfrog rt u "/*" codelinaro-toolchain-for-hexagon
         
