@@ -49,5 +49,5 @@ jobs:
           jfrog rt ping
           cd ${{ steps.extract1.outputs.destination }}/hexagon-artifacts
           jfrog rt u --detailed-summary --flat=false --recursive --exclusions="*.sha256" ./ codelinaro-toolchain-for-hexagon
-          jfrog rt u --detailed-summary --flat=false --recursive "*.sha256" ./ codelinaro-toolchain-for-hexagon
+          jfrog rt u --detailed-summary --flat=false --recursive "*.sha256" codelinaro-toolchain-for-hexagon
         
