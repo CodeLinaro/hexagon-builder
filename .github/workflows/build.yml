@@ -48,5 +48,5 @@ jobs:
           jfrog --version
           jfrog rt ping
           cd ${{ steps.extract1.outputs.destination }}
-          jfrog rt u "/*" codelinaro-toolchain-for-hexagon
+          jfrog rt u --detailed-summary --flat=false --recursive ./ codelinaro-toolchain-for-hexagon
         
