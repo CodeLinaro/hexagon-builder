@@ -31,6 +31,12 @@ jobs:
           build-args: |
             ARTIFACT_TAG=${{ github.event.client_payload.tag_name }}
 
+      - name: Debug
+        run: |
+          df -h
+          docker buildx du
+          docker images
+
       - name: Extract artifacts
         id: extract1
         uses: shrink/actions-docker-extract@v1
